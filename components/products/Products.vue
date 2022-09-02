@@ -4,20 +4,20 @@
      
   
     <div class="container mt-20">
-      <div class="search-box c-flex justify-between mb-10 items-center">
-      <div class="release-start-date items-center c-flex">
+      <div class="search-box c-flex flex-col md:flex-row  justify-between mb-10 items-center">
+      <div class="release-start-date items-center c-flex mt-2">
         <span>release-start-date</span>
         <span class="box-date ml-3" @click="handleDialog('start')">{{start_date}}</span>
       </div>
-      <div class="release-end-date  items-center c-flex">
+      <div class="release-end-date  items-center c-flex mt-2">
         <span>release-end-date</span>
         <span class="box-date ml-3"  @click="handleDialog('end')">{{end_date}}</span>
       </div>
-      <div class="search-Button">
+      <div class="search-Button mt-2">
         <button @click="search" >Search</button>
       </div>
     </div>
-      <div class="grid grid-cols-3 gap-10 ">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10 ">
         <Product v-for="product in products"  :key="product.id" :product="product" />
       
     </div>
@@ -92,14 +92,15 @@
 
 
         let data = {
-       
+          page :this.page1,
           api_key : "f62f750b70a8ef11dad44670cfb6aa57"
          }
           this.$store.dispatch('products/genres',data)
 
-        this.handleNext();
-
-
+   
+        this.$store.dispatch('products/productsPage',data)
+        if(query.page)
+           this.$router.push({path: this.$route.path, query: { page:query.page }})
 
       }
       ,
