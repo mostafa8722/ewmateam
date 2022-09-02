@@ -1,0 +1,25 @@
+.v-image__image--cover {
+/*    background-position: unset!important;
+    background-size: contain!important;*/
+}
+.product-item .v-image__image, .product-item .v-image__placeholder{
+    width: 145px!important;
+}
+
+.product-detail .v-image__image, .product-detail .v-image__placeholder{
+    
+    border-radius: 0.5rem;
+}
+.product-detail .v-responsive{
+   position: unset!important; 
+ 
+}
+
+
+.v-dialog__container{
+    display: block!important;
+}
+
+.v-date-picker-table .v-btn.v-btn--active {
+    color: #244248!important;
+}
